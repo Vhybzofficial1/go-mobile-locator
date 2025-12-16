@@ -1,0 +1,12 @@
+app:
+  name: "MobileLocator"
+  version: "1.0.0"
+  debug: true
+database:
+  sqlite:
+    path: "app.db"
+  gorm:
+    logLevel: 1
+    maxIdleConns: 10
+    maxOpenConns: 100
+    connMaxLifetime: "1h"

@@ -1,0 +1,22 @@
+{
+  "name": "frontend",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "vue": "^3.2.37",
+    "vue-router": "^4.6.4"
+  },
+  "devDependencies": {
+    "@iconify-json/material-symbols": "^1.2.50",
+    "@unocss/reset": "^66.5.10",
+    "@vitejs/plugin-vue": "^3.0.3",
+    "unocss": "^66.5.10",
+    "vite": "^3.0.7"
+  }
+}
