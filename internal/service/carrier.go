@@ -197,6 +197,7 @@ func (s *CarrierService) ProcessCSV(ctx context.Context, base64Str string) ([]by
 	}
 	reader := csv.NewReader(bytes.NewReader(fileData))
 	outBuf := &bytes.Buffer{}
+	outBuf.Write([]byte{0xEF, 0xBB, 0xBF})
 	writer := csv.NewWriter(outBuf)
 	// 读取表头
 	headerRow, err := reader.Read()
@@ -215,8 +216,7 @@ func (s *CarrierService) ProcessCSV(ctx context.Context, base64Str string) ([]by
 	}
 	cache := make(map[string]*model.CarrierData, len(dbList))
 	for i := range dbList {
-		item := dbList[i]
-		cache[item.Key] = &item
+		cache[dbList[i].Key] = &dbList[i]
 	}
 	// 多线程处理行
 	type resultRow struct {
