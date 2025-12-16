@@ -1,19 +1,127 @@
-# README
+# mobile-locator
 
-## About
+一个基于 **Go + Wails** 构建的跨平台桌面应用，用于 ​**手机号归属地的离线查询**​。  
+支持 ​**单条 / 批量查询**​，​**完全不依赖网络**​，内置 ​**483,709 个手机号号段**​，适合在**内网、单机、隔离环境**下使用。
 
-This is the official Wails Vue template.
+**本项目已经经由 Zread 解析完成，如果需要快速了解项目，可以点击此处进行查看：[了解本项目](https://zread.ai/zxc7563598/go-mobile-locator)**
 
-You can configure the project by editing `wails.json`. More information about the project settings can be found
-here: https://wails.io/docs/reference/project-config
+---
 
-## Live Development
+## 项目背景
 
-To run in live development mode, run `wails dev` in the project directory. This will run a Vite development
-server that will provide very fast hot reload of your frontend changes. If you want to develop in a browser
-and have access to your Go methods, there is also a dev server that runs on http://localhost:34115. Connect
-to this in your browser, and you can call your Go code from devtools.
+GitHub 上其实已经有不少手机号码归属地数据库或库实现，大多用于：
 
-## Building
+- Web 服务在线查询
+- 在某个项目中作为依赖引入（我自己也维护过 PHP 的 Composer 包）
 
-To build a redistributable, production mode package, use `wails build`.
+但在实际使用中，我经常遇到这样一种场景：
+
+- 机器 **无法联网**
+- 需要对 **几十万甚至更多手机号** 做快速归属地区分
+- 又不希望临时搭一个服务或写一堆脚本
+
+一直没找到一个**开箱即用、纯离线、桌面化**的方案，于是索性自己做了一个。
+
+---
+
+## 功能特性
+
+- **完全离线**
+
+  - 所有数据本地查询，零网络依赖
+  - 适用于内网 / 单机 / 受限环境
+- **单条 / 批量查询**
+
+  - 支持直接输入手机号查询
+  - 支持批量导入手机号进行快速归属地识别
+- **内置 48 万+ 号段**
+
+  - 内置 **483,709** 个手机号号段
+  - 覆盖主流运营商与地区
+- **可自行生成数据库**
+
+  - 提供离线数据库生成脚本
+  - 方便根据最新号段数据自行构建、更新
+- **跨平台桌面应用**
+
+  - 基于 Wails 构建
+  - 支持 **Windows / macOS**
+
+---
+
+## 技术栈
+
+- ​**后端**：Go
+- ​**桌面框架**：Wails
+- ​**数据库**：SQLite（内嵌）
+- ​**运行方式**：本地桌面应用，无需服务端
+
+---
+
+## 获取应用
+
+### 已编译版本
+
+项目提供 **Windows / macOS** 的可执行程序，下载后即可使用，无需额外环境。
+
+> 具体下载地址请查看 GitHub Releases。
+
+### macOS 信任说明
+
+由于应用未上架 App Store，macOS 首次运行可能会提示无法打开。  
+请在应用所在目录执行以下命令解除隔离标记：
+
+```bash
+xattr -dr com.apple.quarantine mobile-locator.app
+```
+
+然后在「系统设置 → 隐私与安全性」中允许该应用运行。
+
+---
+
+## 自行构建
+
+如果你希望自行构建或更新号段数据，可以按以下步骤操作。
+
+### 生成离线数据库
+
+执行内置工具脚本生成最新的号段数据库：
+
+```bash
+go run tools/generate_db.go
+```
+
+生成完成后会得到用于应用查询的本地数据库文件。
+
+### 构建桌面应用
+
+使用 Wails 打包对应平台的应用：
+
+```bash
+wails build
+```
+
+构建完成后即可在 `build` 目录中获得可执行程序。
+
+---
+
+## 使用场景
+
+- 内网 / 隔离环境下的手机号归属地识别
+- 数据清洗、数据标注前的号码快速分类
+- 无法或不方便部署服务的单机工具
+- 临时分析、离线处理手机号数据
+
+---
+
+## 常见问题
+
+### macOS 无法打开应用
+
+请确认已执行以下命令：
+
+```bash
+xattr -dr com.apple.quarantine mobile-locator.app
+```
+
+并在系统安全设置中允许来自“已识别开发者”的应用。
